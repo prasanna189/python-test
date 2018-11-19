@@ -25,5 +25,5 @@ def moving_average(data, interval):
     ax.xaxis_date(tz='UTC')
     ax.xaxis.set_major_formatter(my_year_month_fmt)
     plt.title('Moving average of Closing Price in ' + str(interval) + ' week intervals')
-    plt.savefig('plots/moving_average.png')
+    plt.savefig('plots/moving_average.png') # store figure as plot
     plt.show()
