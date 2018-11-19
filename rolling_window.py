@@ -70,4 +70,5 @@ def rolling_window(data, window_size):
     ax.xaxis_date(tz='UTC')
     ax.xaxis.set_major_formatter(my_year_month_fmt)
     plt.title('Rolling window of Closing Price for ' + str(window_size) + ' days')
+    plt.savefig('plots/rolling_window.png')
     plt.show()

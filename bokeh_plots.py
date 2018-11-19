@@ -1,6 +1,5 @@
-import pandas as pd
-import numpy as np
 import matplotlib.pyplot as plt
+from bokeh.io import export_png
 from bokeh.plotting import figure, show, output_file, output_notebook, curdoc
 # from bokeh.palettes import Spectral11, colorblind, Inferno, BuGn, brewer
 from bokeh.models import HoverTool, value, LabelSet, Legend, ColumnDataSource,LinearColorMapper,BasicTicker, PrintfTickFormatter, ColorBar
@@ -33,6 +32,7 @@ def plot_bokeh(data):
         p.legend.location = "top_right"
         p.xaxis.axis_label = 'Date'
         p.yaxis.axis_label = 'Closing Price'
+        export_png(p, filename="plots/simple_timeseries.png")
         output_file("plots/simple_timeseries.html", title="Closing Price")
         show(p)
 
@@ -52,6 +52,7 @@ def plot_bokeh(data):
         p.legend.location = "top_right"
         p.xaxis.axis_label = 'Date'
         p.yaxis.axis_label = 'Closing Price'
+        export_png(p, filename="plots/volume_shock.png")
         output_file("plots/volume_shock.html", title="Closing Price with volume shocks")
         show(p)
 
@@ -76,6 +77,8 @@ def plot_bokeh(data):
             p.xaxis.axis_label = 'Date'
             p.yaxis.axis_label = '52 Week moving average difference'
             file_name = "plots/52week_ma_diff"+key+".html"
+            png_file_name = "plots/52week_ma_diff"+key+".png"
+            export_png(p, filename=png_file_name)
             output_file(file_name, title="Difference of 52 week moving average of "+key+" stock")
             show(p)
 
@@ -95,6 +98,7 @@ def plot_bokeh(data):
         p.legend.location = "top_right"
         p.xaxis.axis_label = 'Date'
         p.yaxis.axis_label = 'Closing Price'
+        export_png(p, filename="plots/pricing_wo_volume_shock.png")
         output_file("plots/pricing_wo_volume_shock.html", title="Volumeless Price Movement")
         show(p)
 
